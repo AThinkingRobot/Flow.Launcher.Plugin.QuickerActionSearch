@@ -1,12 +1,12 @@
 {
-    "ID": "2f4e384e-76ce-45c3-aea2-b16f5e5c328f",
+    "ID": "95c035bd82a34def962631ef45870263",
     "ActionKeyword": "qa",
     "Name": "Quicker Action Search",
-    "Description": "Python Hello World example plugin",
-    "Author": "Flow Launcher",
+    "Description": "search quicker action",
+    "Author": "TheMachine",
     "Version": "1.0.0",
     "Language": "python",
-    "Website": "https://github.com/Flow-Launcher/Flow.Launcher.Plugin.HelloWorldPython",
+    "Website": "https://github.com/VirtuousMalefica/Flow.Launcher.Plugin.QuickerActionSearch",
     "IcoPath": "Images\\app.png",
     "ExecuteFileName": "main.py"
 }
