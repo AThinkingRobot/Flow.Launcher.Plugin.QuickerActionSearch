@@ -27,7 +27,7 @@ class QuickerActionSearch(FlowLauncher):
             tempdict = {'title': item, 'subTitle': actionlist[2], 'icoPath': 'Images/app.png',
                         'jsonRPCAction': {'method': 'exec_action', 'parameters': actionlist[0]}, 'score': 0}
 
-            self.jsonlist.append(json.dumps(tempdict))
+            self.jsonlist.append(tempdict)
 
     def query(self, query):
         return self.jsonlist
@@ -50,4 +50,5 @@ class QuickerActionSearch(FlowLauncher):
 
 
 if __name__ == "__main__":
-    QuickerActionSearch()
+    u=QuickerActionSearch()
+    print(u.jsonlist)
