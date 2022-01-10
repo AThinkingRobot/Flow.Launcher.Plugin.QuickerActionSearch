@@ -36,12 +36,13 @@ class QuickerActionSearch(FlowLauncher):
                 "subTitle": "This is where your subtitle goes, press enter to open Flow's url",
                 "icoPath": "Images/app.png",
                 "jsonRPCAction": {
-                    "method": "open_url",
+                    "method": "exec_action",
                     "parameters": ["https://github.com/Flow-Launcher/Flow.Launcher"]
                 },
                 "score": 0
             }
         ]
+
 
     # def context_menu(self, data):
     #     return [
