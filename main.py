@@ -30,7 +30,18 @@ class QuickerActionSearch(FlowLauncher):
             self.jsonlist.append(tempdict)
 
     def query(self, query):
-        return self.jsonlist
+        return [
+            {
+                "title": "Hello World, this is where title goes. {}".format(('Your query is: ' + query , query)[query == '']),
+                "subTitle": "This is where your subtitle goes, press enter to open Flow's url",
+                "icoPath": "Images/app.png",
+                "jsonRPCAction": {
+                    "method": "open_url",
+                    "parameters": ["https://github.com/Flow-Launcher/Flow.Launcher"]
+                },
+                "score": 0
+            }
+        ]
 
     # def context_menu(self, data):
     #     return [
