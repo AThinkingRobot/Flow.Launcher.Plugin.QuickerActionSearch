@@ -49,5 +49,4 @@ class QuickerActionSearch(FlowLauncher):
 
 
 if __name__ == "__main__":
-    u = QuickerActionSearch()
-    print(u.query("ll"))
+    QuickerActionSearch()
