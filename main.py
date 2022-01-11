@@ -19,7 +19,7 @@ with open('quickeractions.csv') as f:
 for item in actiondict.keys():
     actionlist = actiondict[item]
     tempdict = {"Title": item, "SubTitle": actionlist[2], "IcoPath": "Images/app.png",
-                "JsonRPCAction": {"method": "exec_action", "parameters": actionlist[0]}, "scores": 0}
+                "JsonRPCAction": {"method": "exec_action", "parameters": [actionlist[0]]}, "scores": 0}
 
     jsonlist.append(tempdict)
 class QuickerActionSearch(FlowLauncher):
