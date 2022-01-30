@@ -44,7 +44,7 @@ class QuickerActionSearch(FlowLauncher):
                 "SubTitle": data[1],
                 "IcoPath": "Images/app.png",
                 "JsonRPCAction": {
-                    "method": "open_url",
+                    "method": "copy_action_id",
                     "parameters": [data[1]]
                 }
             }

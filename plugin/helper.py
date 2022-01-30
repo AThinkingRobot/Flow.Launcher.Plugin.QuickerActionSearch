@@ -1,6 +1,5 @@
 import csv
 from pypinyin import lazy_pinyin, Style
-import pyperclip
 
 
 class Actions:
