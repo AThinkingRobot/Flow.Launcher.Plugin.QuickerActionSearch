@@ -27,6 +27,7 @@ class QuickerActionSearch(FlowLauncher):
         return jsonlist
 
     def context_menu(self, data):
+        print(data)
         return [
             {
                 "Title": "打开动作网页",
@@ -34,14 +35,14 @@ class QuickerActionSearch(FlowLauncher):
                 "IcoPath": "Images/app.png",
                 "JsonRPCAction": {
                     "method": "open_url",
-                    "parameters": [data[0]]
+                    "parameters": "https://www.baidu.com/"
                 }
             }
         ]
 
     def exec_action(self, paras):
-        # os.system('"C:\Program Files\Quicker\QuickerStarter.exe" runaction:{0}'.format(paras))
-        os.system("start /B quicker:runaction:{0}".format(paras))
+        os.system('"C:\Program Files\Quicker\QuickerStarter.exe" runaction:{0}'.format(paras))
+        # os.system("start /B quicker:runaction:{0}".format(paras))
 
     def open_url(self, url):
         webbrowser.open(url)
