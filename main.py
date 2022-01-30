@@ -21,8 +21,8 @@ class QuickerActionSearch(FlowLauncher):
             if item.find(param) != -1:
                 act_list = act_dict[item]
                 jsonlist.append({"Title": act_list[1], "SubTitle": act_list[2], "IcoPath": "Images/app.png",
-                                 "JsonRPCAction": {"method": "exec_action", "parameters": [act_list[0]], },
-                                 "scores": 0, "context": [act_list[13]]})
+                                 "JsonRPCAction": {"method": "exec_action", "parameters": [act_list[0]],
+                                                   "context": [act_list[13]]},"scores": 0})
 
         return jsonlist
 
