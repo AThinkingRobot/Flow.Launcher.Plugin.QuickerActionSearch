@@ -31,8 +31,9 @@ class QuickerActionSearch(FlowLauncher):
         return jsonlist
 
     def context_menu(self, data):
-        logger.debug(f"======:{data}")
+        logger.info(f"======:{data}")
         url = data
+        url="https://www.baidu.com"
         return [
             {
                 "Title": "打开动作网页",
