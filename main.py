@@ -30,11 +30,11 @@ class QuickerActionSearch(FlowLauncher):
         return [
             {
                 "Title": "打开动作网页",
-                "SubTitle": "在浏览器中打开动作来源网页",
+                "SubTitle": data,
                 "IcoPath": "Images/app.png",
                 "JsonRPCAction": {
                     "method": "open_url",
-                    "parameters": "https://www.baidu.com/"
+                    "parameters": ["https://www.baidu.com/"]
                 }
             }
         ]
