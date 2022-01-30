@@ -1,9 +1,7 @@
 import sys
 import os
 from flowlauncher import FlowLauncher
-import csv
 import re
-from pypinyin import lazy_pinyin
 from plugin.helper import Actions
 
 plugindir = os.path.abspath(os.path.dirname(__file__))
@@ -45,5 +43,4 @@ class QuickerActionSearch(FlowLauncher):
 
 
 if __name__ == "__main__":
-    u = QuickerActionSearch()
-    print(u.query("kfcy"))
+    QuickerActionSearch()
