@@ -29,8 +29,8 @@ class QuickerActionSearch(FlowLauncher):
     def context_menu(self, data):
         return [
             {
-                "Title": "打开动作网页",
-                "SubTitle": data,
+                "Title": data,
+                "SubTitle": "test",
                 "IcoPath": "Images/app.png",
                 "JsonRPCAction": {
                     "method": "open_url",
