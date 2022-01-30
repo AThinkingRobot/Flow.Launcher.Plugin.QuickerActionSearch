@@ -3,6 +3,7 @@ import os
 from flowlauncher import FlowLauncher
 import re
 from plugin.helper import Actions
+import webbrowser
 
 plugindir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(plugindir)
@@ -28,18 +29,21 @@ class QuickerActionSearch(FlowLauncher):
     def context_menu(self, data):
         return [
             {
-                "Title": "Hello World Python's Context menu",
-                "SubTitle": "Press enter to open Flow the plugin's repo in GitHub",
+                "Title": "打开动作网页",
+                "SubTitle": "在浏览器中打开动作来源网页",
                 "IcoPath": "Images/app.png",
                 "JsonRPCAction": {
                     "method": "open_url",
-                    "parameters": ["https://github.com/Flow-Launcher/Flow.Launcher.Plugin.HelloWorldPython"]
+                    "parameters": [data]
                 }
             }
         ]
 
     def exec_action(self, paras):
-        os.system("start quicker:runaction:{0}".format(paras))
+        os.system('"C:\Program Files\Quicker\QuickerStarter.exe" runaction:{0}'.format(paras))
+
+    def open_url(self, url):
+        webbrowser.open(url)
 
 
 if __name__ == "__main__":
