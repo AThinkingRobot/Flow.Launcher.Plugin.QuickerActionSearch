@@ -27,7 +27,6 @@ class QuickerActionSearch(FlowLauncher):
         return jsonlist
 
     def context_menu(self, data):
-        print(data)
         return [
             {
                 "Title": "打开动作网页",
