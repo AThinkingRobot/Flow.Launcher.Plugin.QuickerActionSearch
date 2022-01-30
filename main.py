@@ -21,13 +21,14 @@ class QuickerActionSearch(FlowLauncher):
             if item.find(param) != -1:
                 act_list = act_dict[item]
                 jsonlist.append({"Title": act_list[1], "SubTitle": act_list[2], "IcoPath": "Images/app.png",
-                                 "JsonRPCAction": {"method": "exec_action", "parameters": [act_list[0]],
-                                                   "context": [act_list[13]]},"scores": 0})
+                                 "JsonRPCAction": {"method": "exec_action", "parameters": [act_list[0]],"scores": 0},
+                                "context": [act_list[13]]}
+                )
 
         return jsonlist
 
     def context_menu(self, data):
-        url = data[0]
+        url = data
         return [
             {
                 "Title": "打开动作网页",
@@ -49,4 +50,5 @@ class QuickerActionSearch(FlowLauncher):
 
 
 if __name__ == "__main__":
-    QuickerActionSearch()
+    u=QuickerActionSearch()
+    u.query("yb")
