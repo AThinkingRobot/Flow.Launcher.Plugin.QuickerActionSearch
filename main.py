@@ -28,17 +28,14 @@ class QuickerActionSearch(FlowLauncher):
         return jsonlist
 
     def context_menu(self, data):
-        type1 = str(type(data))
-        url2 = data[0]
-        url = "https://www.baidu.com"
         return [
             {
-                "Title": url2,
-                "SubTitle": type1,
+                "Title": "打开动作网页",
+                "SubTitle": "在浏览器中打开动作网页",
                 "IcoPath": "Images/app.png",
                 "JsonRPCAction": {
                     "method": "open_url",
-                    "parameters": [url]
+                    "parameters": [data[0]]
                 }
             }
         ]
