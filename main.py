@@ -4,11 +4,14 @@ from flowlauncher import FlowLauncher
 import re
 from plugin.helper import Actions
 import webbrowser
+import logging
 
 plugindir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(plugindir)
 sys.path.append(os.path.join(plugindir, "lib"))
 sys.path.append(os.path.join(plugindir, "plugin"))
+
+logger = logging.getLogger(__name__)
 
 
 class QuickerActionSearch(FlowLauncher):
@@ -21,13 +24,14 @@ class QuickerActionSearch(FlowLauncher):
             if item.find(param) != -1:
                 act_list = act_dict[item]
                 jsonlist.append({"Title": act_list[1], "SubTitle": act_list[2], "IcoPath": "Images/app.png",
-                                 "JsonRPCAction": {"method": "exec_action", "parameters": [act_list[0]],"scores": 0},
-                                "context": [act_list[13]]}
-                )
+                                 "JsonRPCAction": {"method": "exec_action", "parameters": [act_list[0]], "scores": 0},
+                                 "context": [act_list[13]]}
+                                )
 
         return jsonlist
 
     def context_menu(self, data):
+        logger.debug(f"======:{data}")
         url = data
         return [
             {
@@ -50,5 +54,4 @@ class QuickerActionSearch(FlowLauncher):
 
 
 if __name__ == "__main__":
-    u=QuickerActionSearch()
-    u.query("yb")
+    QuickerActionSearch()
