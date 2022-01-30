@@ -39,7 +39,7 @@ class QuickerActionSearch(FlowLauncher):
         ]
 
     def exec_action(self, paras):
-        os.system("start quicker:runaction:{0}".format(paras[0]))
+        os.system("start quicker:runaction:{0}".format(paras))
 
 
 if __name__ == "__main__":
