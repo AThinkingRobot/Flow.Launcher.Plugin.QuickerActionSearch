@@ -2,44 +2,29 @@ import sys
 import os
 from flowlauncher import FlowLauncher
 import csv
+import re
+from pypinyin import lazy_pinyin
+from plugin.helper import Actions
 
 plugindir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(plugindir)
 sys.path.append(os.path.join(plugindir, "lib"))
 sys.path.append(os.path.join(plugindir, "plugin"))
 
-actiondict = {}
-jsonlist = []
-with open('quickeractions.csv') as f:
-    f_csv = csv.reader(f)
-    for index, row in enumerate(f_csv):
-        if index == 0 or index == 1:
-            continue
-        actiondict[row[1]] = row
-for item in actiondict.keys():
-    actionlist = actiondict[item]
-    tempdict = {"Title": item, "SubTitle": actionlist[2], "IcoPath": "Images/app.png",
-                "JsonRPCAction": {"method": "exec_action", "parameters": [actionlist[0]]}, "scores": 0}
 
-    jsonlist.append(tempdict)
 class QuickerActionSearch(FlowLauncher):
-    # def __init__(self):
-    #     self.actiondict = {}
-    #     self.jsonlist = []
-    #     with open('quickeractions.csv') as f:
-    #         f_csv = csv.reader(f)
-    #         for index, row in enumerate(f_csv):
-    #             if index == 0 or index == 1:
-    #                 continue
-    #             self.actiondict[row[1]] = row
-    #     for item in self.actiondict.keys():
-    #         actionlist = self.actiondict[item]
-    #         tempdict = {"Title": item, "SubTitle": actionlist[2], "IcoPath": "Images/app.png",
-    #                     "JsonRPCAction": {"method": "exec_action", "parameters": actionlist[0]}, "scores": 0}
-    #
-    #         self.jsonlist.append(tempdict)
-
     def query(self, param: str = ''):
+        jsonlist = []
+        searchObj = re.search(r'[一-龥]', param)
+        act = Actions()
+        act_dict = act.actions(searchObj)
+        for item in act_dict.keys():
+            if item.find(param) != -1:
+                act_list = act_dict[item]
+                jsonlist.append({"Title": act_list[1], "SubTitle": act_list[2], "IcoPath": "Images/app.png",
+                                 "JsonRPCAction": {"method": "exec_action", "parameters": [act_list[0]]},
+                                 "scores": 0})
+
         return jsonlist
 
     def context_menu(self, data):
@@ -55,10 +40,10 @@ class QuickerActionSearch(FlowLauncher):
             }
         ]
 
-
-    def exec_action(self, action_id):
-        os.system("start quicker:runaction:{0}".format(action_id))
+    def exec_action(self, paras):
+        os.system("start quicker:runaction:{0}".format(paras[0]))
 
 
 if __name__ == "__main__":
-    QuickerActionSearch()
+    u = QuickerActionSearch()
+    print(u.query("kfcy"))
